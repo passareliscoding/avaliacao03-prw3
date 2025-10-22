@@ -37,11 +37,30 @@ public class Conserto {
     @Valid
     private Veiculo veiculo;
 
+    private Boolean ativo;
+
     public Conserto(DadosCadastroConserto dados){
+        this.ativo = true;
         this.dataEntrada = dados.dataEntrada();
         this.dataSaida = dados.dataSaida();
         this.mecanico = new Mecanico(dados.mecanico());
         this.veiculo = new Veiculo(dados.veiculo());
+    }
+
+    public void atualizar(DadosAtualizacaoConserto dados){
+        if(dados.dataSaida() != null) {
+            this.dataSaida = dados.dataSaida();
+        }
+        if(dados.nomeMecanico() != null) {
+            this.mecanico.setNomeMecanico(dados.nomeMecanico());
+        }
+        if(dados.anosExp() != null) {
+            this.mecanico.setAnosExp(dados.anosExp());
+        }
+    }
+
+    public void excluir(){
+        this.ativo = false;
     }
 
 }

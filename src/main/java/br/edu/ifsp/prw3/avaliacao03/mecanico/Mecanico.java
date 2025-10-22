@@ -14,10 +14,18 @@ public class Mecanico {
     @NotBlank
     private String nomeMecanico;
 
-    private int anosExp;
+    private String anosExp;
 
     public Mecanico(DadosMecanico dados){
         this.nomeMecanico = dados.nomeMecanico();
         this.anosExp = dados.anosExp();
+    }
+
+    public void setNomeMecanico(String nomeMecanico) {
+        this.nomeMecanico = nomeMecanico;
+    }
+
+    public void setAnosExp(String anosExp) {
+        this.anosExp = anosExp;
     }
 }
